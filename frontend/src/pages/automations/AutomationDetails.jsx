@@ -298,7 +298,7 @@ export default function AutomationDetails() {
             <div className="p-5">
               <h2 className="text-lg font-bold text-text mb-4">Submission Details</h2>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <InfoItem
                   icon={<Calendar className="w-4 h-4" />}
                   label="Scheduled Time"

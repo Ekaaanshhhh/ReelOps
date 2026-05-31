@@ -28,7 +28,7 @@ export default function AutomationExecutionModal({ isOpen, onClose, execution })
         </div>
 
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl border border-border bg-bg-secondary/50">
               <div className="flex items-center gap-2 mb-2">
                 <Activity className="w-4 h-4 text-text-muted" />
@@ -73,7 +73,7 @@ export default function AutomationExecutionModal({ isOpen, onClose, execution })
           )}
 
           {execution.youtubeChannelId && (
-            <div className="p-4 rounded-xl border border-border bg-bg-secondary/50 grid grid-cols-2 gap-4">
+            <div className="p-4 rounded-xl border border-border bg-bg-secondary/50 grid grid-cols-1 sm:grid-cols-2 gap-4">
                <div>
                 <p className="text-xs text-text-muted font-medium uppercase tracking-wider mb-1">Channel ID</p>
                 <p className="text-sm font-mono text-text">{execution.youtubeChannelId}</p>

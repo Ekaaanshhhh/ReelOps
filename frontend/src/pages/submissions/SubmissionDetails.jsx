@@ -186,7 +186,7 @@ export default function SubmissionDetails() {
           )}
 
           {/* Metadata grid */}
-          <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-border">
             <div>
               <span className="text-[10px] uppercase tracking-wider text-text-muted font-medium">Platform</span>
               <div className="flex items-center gap-1.5 mt-1">
