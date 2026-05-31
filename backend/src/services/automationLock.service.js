@@ -2,7 +2,7 @@ import os from "os";
 import Automation from "../models/automation.model.js";
 import { createExecutionLog } from "./execution.service.js";
 
-const INSTANCE_ID = process.env.INSTANCE_ID || `${os.hostname()}-${process.pid}`;
+const INSTANCE_ID = process.env.WORKER_ID || `worker-${process.pid}`;
 const LOCK_TIMEOUT_MINUTES = parseInt(process.env.LOCK_TIMEOUT_MINUTES || "15", 10);
 
 /**

@@ -4,7 +4,7 @@ import connectDB from "./config/db.js";
 import configureCloudinary from "./config/cloudinary.js";
 import { createServer } from "http";
 import { initSocketServer } from "./socket/socket.js";
-import { startScheduler } from "./jobs/scheduler.job.js";
+import { bootstrapScheduler } from "./bootstrap/scheduler.bootstrap.js";
 
 // ── Load environment variables ──────────────────────────────────────
 dotenv.config();
@@ -41,7 +41,7 @@ const startServer = async () => {
       console.log(`🌐 Client URL: ${process.env.CLIENT_URL}\n`);
 
       // Initialize the automation execution scheduler
-      startScheduler();
+      bootstrapScheduler();
     });
   } catch (error) {
     console.error("❌ Failed to start server:", error.message);

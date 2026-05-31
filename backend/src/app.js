@@ -94,7 +94,7 @@ app.get("/", (req, res) => {
 
 app.get("/api/v1/health", (req, res) => {
   res.status(200).json({
-    status: "healthy",
+    status: "ok",
     service: "reelops-api",
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
