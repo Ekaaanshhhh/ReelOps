@@ -47,7 +47,10 @@ const getTransporter = async () => {
 export const sendSubmissionNotification = async (submission, uploaderName, ownerEmails) => {
   if (!ownerEmails || ownerEmails.length === 0) return;
 
-  const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
+  const clientUrls = process.env.CLIENT_URLS
+    ? process.env.CLIENT_URLS.split(",").map(u => u.trim())
+    : [];
+  const clientUrl = clientUrls.length > 0 ? clientUrls[0] : "http://localhost:5173";
   const submissionLink = `${clientUrl}/submissions/${submission._id}`;
 
   const mailOptions = {
@@ -305,7 +308,10 @@ export const sendOAuthRevokedEmail = async (channelPlatform, ownerEmails) => {
 
   const platformName = channelPlatform.platform === "YOUTUBE" ? "YouTube" : channelPlatform.platform;
   const channelName = channelPlatform.youtubeChannelName || "Your Channel";
-  const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
+  const clientUrls = process.env.CLIENT_URLS
+    ? process.env.CLIENT_URLS.split(",").map(u => u.trim())
+    : [];
+  const clientUrl = clientUrls.length > 0 ? clientUrls[0] : "http://localhost:5173";
 
   const mailOptions = {
     from: `"ReelOps Alerts" <${process.env.SMTP_USER || "noreply@reelops.com"}>`,

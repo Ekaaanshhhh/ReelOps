@@ -31,7 +31,11 @@ export const getGoogleConnectUrl = asyncHandler(async (req, res) => {
 export const handleGoogleCallback = asyncHandler(async (req, res) => {
   const { code, state: channelId, error } = req.query;
 
-  const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
+  const clientUrls = process.env.CLIENT_URLS
+    ? process.env.CLIENT_URLS.split(",").map(u => u.trim())
+    : [];
+  // Use the first configured URL as the primary redirect destination, fallback to localhost if entirely missing
+  const CLIENT_URL = clientUrls.length > 0 ? clientUrls[0] : "http://localhost:5173";
 
   if (error) {
     console.error("Google OAuth error:", error);

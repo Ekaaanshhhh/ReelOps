@@ -43,15 +43,25 @@ app.use("/api", globalLimiter);
 
 // ── Global Middleware ───────────────────────────────────────────────
 
-// CORS — allow frontend origin
+// Define allowed origins from environment or default to local dev
+const allowedOrigins = process.env.CLIENT_URLS
+  ? process.env.CLIENT_URLS.split(",").map((url) => url.trim())
+  : ["http://localhost:5173"];
+
+// CORS — allow configured frontend origins
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow all local dev origins or specific deployed origins
-      callback(null, true);
+      // Allow requests with no origin (like mobile apps or curl requests)
+      // and requests from allowed origins
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
     },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
@@ -82,10 +92,11 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/health", (req, res) => {
+app.get("/api/v1/health", (req, res) => {
   res.status(200).json({
-    success: true,
     status: "healthy",
+    service: "reelops-api",
+    timestamp: new Date().toISOString(),
     uptime: process.uptime(),
   });
 });

@@ -13,9 +13,13 @@ let io;
  * channel-based real-time event handlers.
  */
 export const initSocketServer = (httpServer) => {
+  const allowedOrigins = process.env.CLIENT_URLS
+    ? process.env.CLIENT_URLS.split(",").map((url) => url.trim())
+    : ["http://localhost:5173"];
+
   io = new Server(httpServer, {
     cors: {
-      origin: true, // Allow true for testing, or match Express CORS rules
+      origin: allowedOrigins,
       credentials: true,
     },
   });
