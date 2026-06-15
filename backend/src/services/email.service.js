@@ -50,7 +50,7 @@ export const sendSubmissionNotification = async (submission, uploaderName, owner
   const clientUrls = process.env.CLIENT_URLS
     ? process.env.CLIENT_URLS.split(",").map(u => u.trim())
     : [];
-  const clientUrl = clientUrls.length > 0 ? clientUrls[0] : "http://localhost:5173";
+  const clientUrl = clientUrls.length > 0 ? clientUrls[0] : "https://reel-ops.vercel.app";
   const submissionLink = `${clientUrl}/submissions/${submission._id}`;
 
   const mailOptions = {
@@ -311,7 +311,7 @@ export const sendOAuthRevokedEmail = async (channelPlatform, ownerEmails) => {
   const clientUrls = process.env.CLIENT_URLS
     ? process.env.CLIENT_URLS.split(",").map(u => u.trim())
     : [];
-  const clientUrl = clientUrls.length > 0 ? clientUrls[0] : "http://localhost:5173";
+  const clientUrl = clientUrls.length > 0 ? clientUrls[0] : "https://reel-ops.vercel.app";
 
   const mailOptions = {
     from: `"ReelOps Alerts" <${process.env.SMTP_USER || "noreply@reelops.com"}>`,

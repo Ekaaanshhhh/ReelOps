@@ -15,7 +15,7 @@ let io;
 export const initSocketServer = (httpServer) => {
   const allowedOrigins = process.env.CLIENT_URLS
     ? process.env.CLIENT_URLS.split(",").map((url) => url.trim())
-    : ["http://localhost:5173"];
+    : ["https://reel-ops.vercel.app"];
 
   io = new Server(httpServer, {
     cors: {

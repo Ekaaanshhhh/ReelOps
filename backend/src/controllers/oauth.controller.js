@@ -34,8 +34,8 @@ export const handleGoogleCallback = asyncHandler(async (req, res) => {
   const clientUrls = process.env.CLIENT_URLS
     ? process.env.CLIENT_URLS.split(",").map(u => u.trim())
     : [];
-  // Use the first configured URL as the primary redirect destination, fallback to localhost if entirely missing
-  const CLIENT_URL = clientUrls.length > 0 ? clientUrls[0] : "http://localhost:5173";
+  // Use the first configured URL as the primary redirect destination, fallback to production URL if entirely missing
+  const CLIENT_URL = clientUrls.length > 0 ? clientUrls[0] : "https://reel-ops.vercel.app";
 
   if (error) {
     console.error("Google OAuth error:", error);

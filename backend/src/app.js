@@ -46,7 +46,7 @@ app.use("/api", globalLimiter);
 // Define allowed origins from environment or default to local dev
 const allowedOrigins = process.env.CLIENT_URLS
   ? process.env.CLIENT_URLS.split(",").map((url) => url.trim())
-  : ["http://localhost:5173"];
+  : ["https://reel-ops.vercel.app"];
 
 // CORS — allow configured frontend origins
 app.use(
