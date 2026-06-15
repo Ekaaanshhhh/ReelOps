@@ -100,7 +100,7 @@ export default function HomePage() {
       </nav>
 
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section className="pt-[132px] pb-14 px-6 lg:px-12 max-w-7xl mx-auto">
+      <section className="pt-24 lg:pt-[132px] pb-14 px-6 lg:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 items-center">
           <FadeUp>
             <div className="inline-flex items-center gap-2 bg-bg rounded-[20px] py-[7px] px-4 neu-sm text-[11px] font-semibold text-accent-purple tracking-widest uppercase mb-7">

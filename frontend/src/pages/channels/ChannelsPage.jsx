@@ -45,7 +45,7 @@ export default function ChannelsPage() {
   return (
     <div className="max-w-5xl mx-auto">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <h1 className="text-2xl font-bold font-heading text-text">My Channels</h1>
           <p className="text-sm text-text-muted mt-0.5">
@@ -94,7 +94,7 @@ export default function ChannelsPage() {
           <p className="text-sm text-text-muted max-w-sm mb-6">
             Create your first channel to start collaborating on content, or join an existing one with an invite code.
           </p>
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto px-4 sm:px-0">
             <button
               onClick={() => setShowCreateModal(true)}
               className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium text-white gradient-bg hover:opacity-90"

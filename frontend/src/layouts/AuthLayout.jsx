@@ -73,7 +73,7 @@ export default function AuthLayout() {
           className="w-full max-w-md"
         >
           {/* Neumorphic wrapper for the forms */}
-          <div className="bg-bg rounded-[24px] p-8 sm:p-10 neu-out">
+          <div className="bg-bg rounded-[24px] p-6 sm:p-10 neu-out">
             <Outlet />
           </div>
         </motion.div>
